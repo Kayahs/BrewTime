@@ -1,0 +1,59 @@
+exports.up = pgm => {
+  //1. Breweries Table
+  pgm.sql(`
+    CREATE TABLE "brewtime"."breweries" (
+      "id" SERIAL PRIMARY KEY,
+      "name" TEXT UNIQUE NOT NULL,
+      "description" TEXT NOT NULL
+    );
+  `),
+    //2. Types Table
+    pgm.sql(`
+    CREATE TABLE "brewtime"."types" (
+      "id" SERIAL PRIMARY KEY,
+      "name" TEXT NOT NULL
+    );
+  `),
+    //3. Map Data Table
+    pgm.sql(`
+    CREATE TABLE "brewtime"."mapdata" (
+      "id" SERIAL PRIMARY KEY,
+      "location" TEXT NOT NULL,
+      "description" TEXT,
+      "type_id" INTEGER REFERENCES types(id) NOT NULL,
+      "brewery_id" INTEGER REFERENCES breweries(id) NOT NULL
+    );
+  `),
+    //4. Bookings Table
+    pgm.sql(`
+      CREATE TABLE "brewtime"."bookings" (
+        "id" SERIAL PRIMARY KEY,
+        "title" TEXT NOT NULL,
+        "description" TEXT NOT NULL,
+        "time" TEXT NOT NULL,
+        "brewery_id" INTEGER REFERENCES breweries(id)
+      );
+  `),
+    //5. Images Table
+    pgm.sql(`
+      CREATE TABLE "brewtime"."images" (
+        "id" SERIAL PRIMARY KEY,
+        "uri" TEXT NOT NULL,
+        "description" TEXT NOT NULL,
+        "width" INTEGER NOT NULL,
+        "height" INTEGER NOT NULL,
+        "brewery_id" INTEGER REFERENCES breweries(id)
+      );
+  `),
+    //6. Products Table
+    pgm.sql(`
+      CREATE TABLE "brewtime"."products" (
+        "id" SERIAL PRIMARY KEY,
+        "name" TEXT NOT NULL,
+        "description" TEXT NOT NULL,
+        "image" TEXT NOT NULL,
+        "price" INTEGER NOT NULL,
+        "brewery_id" INTEGER REFERENCES breweries(id)
+      );
+  `)
+}
