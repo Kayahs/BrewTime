@@ -12,18 +12,6 @@ const breweriesSeeds = [
   }
 ]
 
-const typesSeeds = [
-  {
-    name: "Brewery"
-  },
-  {
-    name: "Restaurant"
-  },
-  {
-    name: "Bar"
-  }
-]
-
 const mapdataSeeds = [
   {
     location: "462 Wellington St W #101, Toronto, ON M5V 1E3",
@@ -35,7 +23,7 @@ const mapdataSeeds = [
                   braaiinns stalking monstra hypothalamus adventus resi 
                   hippocampus dentevil vultus brain comedat cerebella 
                   pitiutary gland viventium. `,
-    type_id: 1,
+    type: "Brewery",
     brewery_id: 1
   },
   {
@@ -50,7 +38,7 @@ const mapdataSeeds = [
                   lum cerebro. Nescio brains an Undead cervello zombies. 
                   Sicut thalamus malus putrid brains voodoo horror. Nigh 
                   basal ganglia tofth eliv ingdead.`,
-    type_id: 3,
+    type: "Bar",
     brewery_id: 1
   },
   {
@@ -62,7 +50,7 @@ const mapdataSeeds = [
                   don't belong to me. Besides, I've already been through 
                   too much shit this morning over this case to hand it 
                   over to your dumb ass.`,
-    type_id: 2,
+    type: "Restaurant",
     brewery_id: 1
   }
 ]
@@ -150,22 +138,6 @@ const seed = async () => {
     )
 
     console.log("Seeding Breweries... [DONE]")
-
-    console.log("Seeding Types...")
-
-    await Promise.all(
-      typesSeeds.map(typesSeed =>
-        pg.query(
-          squel
-            .insert()
-            .into("brewtime.types")
-            .setFields(typesSeed)
-            .toParam()
-        )
-      )
-    )
-
-    console.log("Seeding Types... [DONE]")
 
     console.log("Seeding Map Data...")
 
