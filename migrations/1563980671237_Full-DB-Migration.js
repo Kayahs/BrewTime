@@ -7,11 +7,11 @@ exports.up = pgm => {
       "description" TEXT NOT NULL
     );
   `),
-    //2. Map Data Table
+    //2. Locations Table
     pgm.sql(`
-    CREATE TABLE "brewtime"."mapdata" (
+    CREATE TABLE "brewtime"."locations" (
       "id" SERIAL PRIMARY KEY,
-      "location" TEXT NOT NULL,
+      "address" TEXT NOT NULL,
       "description" TEXT,
       "type" TEXT NOT NULL,
       "brewery_id" INTEGER REFERENCES breweries(id) NOT NULL
@@ -23,6 +23,8 @@ exports.up = pgm => {
         "id" SERIAL PRIMARY KEY,
         "title" TEXT NOT NULL,
         "description" TEXT NOT NULL,
+        "location" INTEGER REFERENCES locations(id) NOT NULL,
+        "guide" TEXT NOT NULL,
         "time" TEXT NOT NULL,
         "brewery_id" INTEGER REFERENCES breweries(id)
       );
