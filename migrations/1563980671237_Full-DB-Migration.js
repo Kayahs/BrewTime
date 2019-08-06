@@ -7,34 +7,29 @@ exports.up = pgm => {
       "description" TEXT NOT NULL
     );
   `),
-    //2. Types Table
+    //2. Locations Table
     pgm.sql(`
-    CREATE TABLE "brewtime"."types" (
+    CREATE TABLE "brewtime"."locations" (
       "id" SERIAL PRIMARY KEY,
-      "name" TEXT NOT NULL
-    );
-  `),
-    //3. Map Data Table
-    pgm.sql(`
-    CREATE TABLE "brewtime"."mapdata" (
-      "id" SERIAL PRIMARY KEY,
-      "location" TEXT NOT NULL,
+      "address" TEXT NOT NULL,
       "description" TEXT,
-      "type_id" INTEGER REFERENCES types(id) NOT NULL,
+      "type" TEXT NOT NULL,
       "brewery_id" INTEGER REFERENCES breweries(id) NOT NULL
     );
   `),
-    //4. Bookings Table
+    //3. Bookings Table
     pgm.sql(`
       CREATE TABLE "brewtime"."bookings" (
         "id" SERIAL PRIMARY KEY,
         "title" TEXT NOT NULL,
         "description" TEXT NOT NULL,
+        "location" INTEGER REFERENCES locations(id) NOT NULL,
+        "guide" TEXT NOT NULL,
         "time" TEXT NOT NULL,
         "brewery_id" INTEGER REFERENCES breweries(id)
       );
   `),
-    //5. Images Table
+    //4. Images Table
     pgm.sql(`
       CREATE TABLE "brewtime"."images" (
         "id" SERIAL PRIMARY KEY,
@@ -45,7 +40,7 @@ exports.up = pgm => {
         "brewery_id" INTEGER REFERENCES breweries(id)
       );
   `),
-    //6. Products Table
+    //5. Products Table
     pgm.sql(`
       CREATE TABLE "brewtime"."products" (
         "id" SERIAL PRIMARY KEY,
