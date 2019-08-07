@@ -4,39 +4,76 @@ const config = require("../config/default.json")
 
 const breweriesSeeds = [
   {
-    name: "Red Autumn",
-    description: `Zombie ipsum brains reversus ab cerebellum viral inferno, brein nam rick mend grimes malum cerveau cerebro. De carne cerebro lumbering animata cervello corpora quaeritis.`
+    name: "Red Autumn"
+  }
+]
+
+const descriptionsSeeds = [
+  {
+    description:
+      "Zombie ipsum brains reversus ab cerebellum viral inferno, brein nam rick mend grimes malum cerveau cerebro. De carne cerebro lumbering animata cervello corpora quaeritis.",
+    dorder: 1,
+    brewery_id: 1
+  },
+  {
+    description:
+      "Whyt zomby Ut fames after death cerebro virus enim carnis grusome, viscera et organa viventium.",
+    dorder: 2,
+    brewery_id: 1
+  },
+  {
+    description:
+      "Avium, brains guts, ghouls, unholy canum, fugere ferae et infecti horrenda monstra.",
+    dorder: 3,
+    brewery_id: 1
+  }
+]
+
+const mapsSeeds = [
+  {
+    latitude: 43.644,
+    longitude: -79.39993,
+    latitudedelta: 43.644,
+    longitudedelta: -79.39993,
+    brewery_id: 1
   }
 ]
 
 const locationsSeeds = [
   {
     address: "462 Wellington St W #101, Toronto, ON M5V 1E3",
-    description: `Summus thalamus brains sit​​, morbobasal ganglia vel maleficia? De braaaiiiins apocalypsi gorger omero prefrontal cortex undead survivor fornix dictum mauris. Hi brains mindless mortuis limbic cortex soulless creaturas optic nerve, imo evil braaiinns stalking monstra hypothalamus adventus resi hippocampus dentevil vultus brain comedat cerebella pitiutary gland viventium. `,
-    type: "Brewery",
-    brewery_id: 1
+    description:
+      "Summus thalamus brains sit​​, morbobasal ganglia vel maleficia? De braaaiiiins apocalypsi gorger omero prefrontal cortex undead survivor fornix dictum mauris. Hi brains mindless mortuis limbic cortex soulless creaturas optic nerve, imo evil braaiinns stalking monstra hypothalamus adventus resi hippocampus dentevil vultus brain comedat cerebella pitiutary gland viventium. ",
+    latitude: 43.644,
+    longitude: -79.39993,
+    map_id: 1
   },
   {
     address: "520 Wellington St W, Toronto, ON M5V 1E3",
-    description: `Qui optic gland animated corpse, brains cricket bat substantia nigra max brucks spinal cord terribilem incessu brains zomby. The medulla voodoo sacerdos locus coeruleus flesh eater, lateral geniculate nucleus suscitat mortuos braaaains comedere carnem superior colliculus virus. Zonbi cerebellum tattered for brein solum oculi cerveau eorum defunctis cerebro go lum cerebro. Nescio brains an Undead cervello zombies. Sicut thalamus malus putrid brains voodoo horror. Nigh basal ganglia tofth eliv ingdead.`,
-    type: "Bar",
-    brewery_id: 1
+    description:
+      "Qui optic gland animated corpse, brains cricket bat substantia nigra max brucks spinal cord terribilem incessu brains zomby. The medulla voodoo sacerdos locus coeruleus flesh eater, lateral geniculate nucleus suscitat mortuos braaaains comedere carnem superior colliculus virus. Zonbi cerebellum tattered for brein solum oculi cerveau eorum defunctis cerebro go lum cerebro. Nescio brains an Undead cervello zombies. Sicut thalamus malus putrid brains voodoo horror. Nigh basal ganglia tofth eliv ingdead.",
+    latitude: 43.64331,
+    longitude: -79.40156,
+    map_id: 1
   },
   {
     address: "609 King St W, Toronto, ON M5V 1M5",
-    description: `Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass.`,
-    type: "Restaurant",
-    brewery_id: 1
+    description:
+      "Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass.",
+    latitude: 43.64411,
+    longitude: -79.40289,
+    map_id: 1
   }
 ]
 
 const bookingsSeeds = [
   {
     title: "Brewery Tour",
-    description: `Nescio brains an Undead cervello zombies. Sicut thalamus malus putrid brains voodoo horror. Nigh basal ganglia tofth eliv ingdead.`,
-    location: 3,
+    description:
+      "Nescio brains an Undead cervello zombies. Sicut thalamus malus putrid brains voodoo horror. Nigh basal ganglia tofth eliv ingdead.",
+    location_id: 3,
     guide: "Simon Stern",
-    time: "07-25-2019",
+    time: "2019-07-25 10:00:00",
     brewery_id: 1
   }
 ]
@@ -44,42 +81,111 @@ const bookingsSeeds = [
 const imagesSeeds = [
   {
     uri: "https://via.placeholder.com/1136x640",
-    description: `Nescio brains an Undead cervello zombies. Sicut thalamus malus putrid brains voodoo horror. Nigh basal ganglia tofth eliv ingdead.`,
+    description:
+      "Nescio brains an Undead cervello zombies. Sicut thalamus malus putrid brains voodoo horror. Nigh basal ganglia tofth eliv ingdead.",
     width: 1136,
-    height: 640,
-    brewery_id: 1
+    height: 640
   },
   {
     uri: "https://via.placeholder.com/960x640",
-    description: `Nescio brains an Undead cervello zombies. Sicut thalamus malus putrid brains voodoo horror. Nigh basal ganglia tofth eliv ingdead.`,
+    description:
+      "Nescio brains an Undead cervello zombies. Sicut thalamus malus putrid brains voodoo horror. Nigh basal ganglia tofth eliv ingdead.",
     width: 960,
-    height: 640,
-    brewery_id: 1
+    height: 640
   },
   {
     uri: "https://via.placeholder.com/320x480",
-    description: `Nescio brains an Undead cervello zombies. Sicut thalamus malus putrid brains voodoo horror. Nigh basal ganglia tofth eliv ingdead.`,
+    description:
+      "Nescio brains an Undead cervello zombies. Sicut thalamus malus putrid brains voodoo horror. Nigh basal ganglia tofth eliv ingdead.",
     width: 320,
-    height: 480,
-    brewery_id: 1
+    height: 480
   },
   {
     uri: "https://via.placeholder.com/320x416",
-    description: `Nescio brains an Undead cervello zombies. Sicut thalamus malus putrid brains voodoo horror. Nigh basal ganglia tofth eliv ingdead.`,
+    description:
+      "Nescio brains an Undead cervello zombies. Sicut thalamus malus putrid brains voodoo horror. Nigh basal ganglia tofth eliv ingdead.",
     width: 320,
-    height: 416,
-    brewery_id: 1
+    height: 416
+  }
+]
+
+const dimensionsSeeds = [
+  {
+    height: 19.0,
+    length: 15.0,
+    weight: 32.0,
+    width: 15.0
   }
 ]
 
 const productsSeeds = [
   {
+    caption: "Pictures of Shitty Wine",
+    description:
+      "De braaaiiiins apocalypsi gorger omero prefrontal cortex undead survivor fornix dictum mauris.",
     name: "Shitty Wine",
-    description: `De braaaiiiins apocalypsi gorger omero prefrontal cortex undead survivor fornix dictum mauris.`,
+    dimension_id: 1,
     price: 200,
-    image:
-      "https://www.thelabelmaker.eu/wp-content/uploads/2018/08/orbelia-wine-bottle-design.jpg",
     brewery_id: 1
+  }
+]
+
+const metadataSeeds = [{ product_id: 1 }]
+
+const breweriesImagesSeeds = [
+  {
+    brewery_id: 1,
+    image_id: 1
+  },
+  {
+    brewery_id: 1,
+    image_id: 2
+  },
+  {
+    brewery_id: 1,
+    image_id: 3
+  },
+  {
+    brewery_id: 1,
+    image_id: 4
+  }
+]
+
+const bookingsImagesSeeds = [
+  {
+    booking_id: 1,
+    image_id: 1
+  },
+  {
+    booking_id: 1,
+    image_id: 2
+  },
+  {
+    booking_id: 1,
+    image_id: 3
+  },
+  {
+    booking_id: 1,
+    image_id: 4
+  }
+]
+
+const productsImagesSeeds = [
+  {
+    product_id: 1,
+    image_id: 1
+  },
+  {
+    product_id: 1,
+    image_id: 2
+  },
+  {
+    product_id: 1,
+    image_id: 3
+  },
+  {
+    product_id: 1,
+    image_id: 4
   }
 ]
 
@@ -104,6 +210,38 @@ const seed = async () => {
     )
 
     console.log("Seeding Breweries... [DONE]")
+
+    console.log("Seeding Descriptions...")
+
+    await Promise.all(
+      descriptionsSeeds.map(descriptionsSeed =>
+        pg.query(
+          squel
+            .insert()
+            .into("brewtime.descriptions")
+            .setFields(descriptionsSeed)
+            .toParam()
+        )
+      )
+    )
+
+    console.log("Seeding Descriptions... [DONE]")
+
+    console.log("Seeding Maps...")
+
+    await Promise.all(
+      mapsSeeds.map(mapsSeed =>
+        pg.query(
+          squel
+            .insert()
+            .into("brewtime.maps")
+            .setFields(mapsSeed)
+            .toParam()
+        )
+      )
+    )
+
+    console.log("Seeding Maps... [DONE]")
 
     console.log("Seeding Locations...")
 
@@ -153,6 +291,22 @@ const seed = async () => {
 
     console.log("Seeding Images... [DONE]")
 
+    console.log("Seeding Dimensions...")
+
+    await Promise.all(
+      dimensionsSeeds.map(dimensionsSeed =>
+        pg.query(
+          squel
+            .insert()
+            .into("brewtime.dimensions")
+            .setFields(dimensionsSeed)
+            .toParam()
+        )
+      )
+    )
+
+    console.log("Seeding Dimensions... [DONE]")
+
     console.log("Seeding Products...")
 
     await Promise.all(
@@ -168,6 +322,70 @@ const seed = async () => {
     )
 
     console.log("Seeding Products... [DONE]")
+
+    console.log("Seeding Metadata...")
+
+    await Promise.all(
+      metadataSeeds.map(metadataSeed =>
+        pg.query(
+          squel
+            .insert()
+            .into("brewtime.metadata")
+            .setFields(metadataSeed)
+            .toParam()
+        )
+      )
+    )
+
+    console.log("Seeding Metadata... [DONE]")
+
+    console.log("Seeding Brewery Images...")
+
+    await Promise.all(
+      breweriesImagesSeeds.map(breweriesImagesSeed =>
+        pg.query(
+          squel
+            .insert()
+            .into("brewtime.breweries_images")
+            .setFields(breweriesImagesSeed)
+            .toParam()
+        )
+      )
+    )
+
+    console.log("Seeding Brewery Images... [DONE]")
+
+    console.log("Seeding Bookings Images...")
+
+    await Promise.all(
+      bookingsImagesSeeds.map(bookingsImagesSeed =>
+        pg.query(
+          squel
+            .insert()
+            .into("brewtime.bookings_images")
+            .setFields(bookingsImagesSeed)
+            .toParam()
+        )
+      )
+    )
+
+    console.log("Seeding Bookings Images... [DONE]")
+
+    console.log("Seeding Products Images...")
+
+    await Promise.all(
+      productsImagesSeeds.map(productsImagesSeed =>
+        pg.query(
+          squel
+            .insert()
+            .into("brewtime.products_images")
+            .setFields(productsImagesSeed)
+            .toParam()
+        )
+      )
+    )
+
+    console.log("Seeding Products Images... [DONE]")
 
     await pg.query("COMMIT")
   } catch (e) {
