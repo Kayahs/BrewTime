@@ -1,5 +1,15 @@
 module.exports = {
   Brewery: {
+    async descriptions(parent, args, { postgres }, info) {
+      const getDescriptionsQuery = {
+        text: "SELECT * FROM brewtime.descriptions WHERE brewery_id = $1",
+        values: [parent.id]
+      }
+
+      const getDescriptionsResult = await postgres.query(getDescriptionsQuery)
+
+      return getDescriptionsResult.rows
+    },
     async locations(parent, args, { postgres }, info) {
       const getLocationsQuery = {
         text: "SELECT * FROM brewtime.locations WHERE brewery_id = $1",
