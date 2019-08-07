@@ -1,8 +1,12 @@
 const { gql } = require("apollo-server-express")
 
 module.exports = gql`
+  scalar Date
+
   type Query {
     getBreweries: [Brewery]!
+    getBreweryInfo(input: QueryInput!): Brewery!
+    getLocations(input: QueryInput!): [Location]!
   }
 
   type Mutation {
@@ -12,19 +16,35 @@ module.exports = gql`
   type Brewery {
     id: ID!
     name: String!
-    description: String!
+    descriptions: [Description]!
     locations: [Location]!
     bookings: [Booking]!
     images: [Image]!
     products: [Product]!
   }
 
+  type Description {
+    id: ID!
+    description: String!
+    order: Int!
+  }
+
+  type Map {
+    id: ID!
+    latitude: Float!
+    longitude: Float!
+    latitudeDelta: Float!
+    longitudeDelta: Float!
+    brewery: Brewery!
+    locations: [Location]!
+  }
+
   type Location {
     id: ID!
     address: String!
     description: String
-    type: String!
-    brewery: Brewery!
+    latitude: Float!
+    longitude: Float!
   }
 
   type Booking {
@@ -35,6 +55,7 @@ module.exports = gql`
     guide: String!
     time: String!
     brewery: Brewery!
+    images: [Image]!
   }
 
   type Image {
@@ -45,12 +66,40 @@ module.exports = gql`
     height: Int!
   }
 
+  type Metadata {
+    id: ID!
+    order_id: Int!
+  }
+
+  type Dimension {
+    id: ID!
+    height: Float!
+    length: Float!
+    weight: Float!
+    width: Float!
+  }
+
   type Product {
     id: ID!
-    name: String!
+    object: String!
+    active: Boolean!
+    caption: String
+    created: Date!
+    deactivate_on: Date
+    images: [Image]!
     description: String!
-    image: String!
+    livemode: Boolean
+    metadata: Metadata
+    name: String!
+    package_dimension: Dimension
+    shippable: Boolean
+    updated: Date!
     price: Int!
     brewery: Brewery
+  }
+
+  input QueryInput {
+    token: ID!
+    brewery_id: ID!
   }
 `
