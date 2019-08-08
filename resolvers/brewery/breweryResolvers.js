@@ -2,7 +2,8 @@ module.exports = {
   Brewery: {
     async descriptions(parent, args, { postgres }, info) {
       const getDescriptionsQuery = {
-        text: "SELECT * FROM brewtime.descriptions WHERE brewery_id = $1",
+        text:
+          "SELECT *, dorder AS order FROM brewtime.descriptions WHERE brewery_id = $1",
         values: [parent.id]
       }
 
@@ -10,15 +11,16 @@ module.exports = {
 
       return getDescriptionsResult.rows
     },
-    async locations(parent, args, { postgres }, info) {
-      const getLocationsQuery = {
-        text: "SELECT * FROM brewtime.locations WHERE brewery_id = $1",
+    async map(parent, args, { postgres }, info) {
+      const getMapQuery = {
+        text:
+          "SELECT *, latitudedelta AS latitudeDelta, longitudedelta AS longitudeDelta FROM brewtime.maps WHERE brewery_id = $1",
         values: [parent.id]
       }
 
-      const getLocationsResult = await postgres.query(getLocationsQuery)
+      const getMapResult = await postgres.query(getMapQuery)
 
-      return getLocationsResult.rows
+      return getMapResult.rows[0]
     },
     async bookings(parent, args, { postgres }, info) {
       const getBookingsQuery = {
@@ -32,7 +34,8 @@ module.exports = {
     },
     async images(parent, args, { postgres }, info) {
       const getImagesQuery = {
-        text: "SELECT * FROM brewtime.images WHERE brewery_id = $1",
+        text:
+          "SELECT id, uri, description, width, height FROM brewtime.images INNER JOIN brewtime.breweries_images ON images.id = breweries_images.image_id WHERE brewery_id = $1",
         values: [parent.id]
       }
 

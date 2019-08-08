@@ -32,9 +32,9 @@ const descriptionsSeeds = [
 const mapsSeeds = [
   {
     latitude: 43.644,
-    longitude: -79.39993,
+    longitude: 79.39993,
     latitudedelta: 43.644,
-    longitudedelta: -79.39993,
+    longitudedelta: 79.39993,
     brewery_id: 1
   }
 ]
@@ -43,7 +43,7 @@ const locationsSeeds = [
   {
     address: "462 Wellington St W #101, Toronto, ON M5V 1E3",
     description:
-      "Summus thalamus brains sit​​, morbobasal ganglia vel maleficia? De braaaiiiins apocalypsi gorger omero prefrontal cortex undead survivor fornix dictum mauris. Hi brains mindless mortuis limbic cortex soulless creaturas optic nerve, imo evil braaiinns stalking monstra hypothalamus adventus resi hippocampus dentevil vultus brain comedat cerebella pitiutary gland viventium. ",
+      "Zombie ipsum brains reversus ab cerebellum viral inferno, brein nam rick mend grimes malum cerveau cerebro. De carne cerebro lumbering animata cervello corpora quaeritis.",
     latitude: 43.644,
     longitude: -79.39993,
     map_id: 1
@@ -51,7 +51,7 @@ const locationsSeeds = [
   {
     address: "520 Wellington St W, Toronto, ON M5V 1E3",
     description:
-      "Qui optic gland animated corpse, brains cricket bat substantia nigra max brucks spinal cord terribilem incessu brains zomby. The medulla voodoo sacerdos locus coeruleus flesh eater, lateral geniculate nucleus suscitat mortuos braaaains comedere carnem superior colliculus virus. Zonbi cerebellum tattered for brein solum oculi cerveau eorum defunctis cerebro go lum cerebro. Nescio brains an Undead cervello zombies. Sicut thalamus malus putrid brains voodoo horror. Nigh basal ganglia tofth eliv ingdead.",
+      "Zombie ipsum brains reversus ab cerebellum viral inferno, brein nam rick mend grimes malum cerveau cerebro. De carne cerebro lumbering animata cervello corpora quaeritis.",
     latitude: 43.64331,
     longitude: -79.40156,
     map_id: 1
@@ -59,7 +59,7 @@ const locationsSeeds = [
   {
     address: "609 King St W, Toronto, ON M5V 1M5",
     description:
-      "Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass.",
+      "Zombie ipsum brains reversus ab cerebellum viral inferno, brein nam rick mend grimes malum cerveau cerebro. De carne cerebro lumbering animata cervello corpora quaeritis.",
     latitude: 43.64411,
     longitude: -79.40289,
     map_id: 1
