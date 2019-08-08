@@ -6,7 +6,11 @@ module.exports = gql`
   type Query {
     getBreweries: [Brewery]!
     getBreweryInfo(input: QueryInput!): Brewery!
-    getLocations(input: QueryInput!): [Location]!
+    getMapData(input: QueryInput!): Map
+    getBookings(input: QueryInput!): [Booking]!
+    getBooking(input: BookingInput!): Booking!
+    getProducts(input: QueryInput!): [Product]!
+    getProduct(input: ProductInput!): Product!
   }
 
   type Mutation {
@@ -17,7 +21,7 @@ module.exports = gql`
     id: ID!
     name: String!
     descriptions: [Description]!
-    locations: [Location]!
+    map: Map!
     bookings: [Booking]!
     images: [Image]!
     products: [Product]!
@@ -101,5 +105,15 @@ module.exports = gql`
   input QueryInput {
     token: ID!
     brewery_id: ID!
+  }
+
+  input BookingInput {
+    token: ID!
+    booking_id: ID!
+  }
+
+  input ProductInput {
+    token: ID!
+    product_id: ID!
   }
 `
